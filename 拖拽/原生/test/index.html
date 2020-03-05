@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .drag {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left:0;
+            top:0;
+            background-color: aqua;
+        }
+        .parent {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent" id="parent">
+        <div id="drag" class="drag"></div>
+    </div>
+</body>
+<script src="../index.js"></script>
+<script>
+    // mousedown可以添加在目标元素上，但是mousemove需要添加到父元素上，因为当鼠标移动到目标元素外时，就不能触发mousemove事件
+    let el = document.querySelector('#drag');
+    let parent =  document.querySelector('#parent');
+    function startCallback() {
+        console.log('start drag');
+        
+    }
+    function stopCallback() {
+        console.log('stop drag');
+        
+    }
+    new drag(el, parent, startCallback, stopCallback, true)
+</script>
+</html>

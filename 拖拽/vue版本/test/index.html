@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            border: 1px solid red;
+        }
+        .drag {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left:0;
+            top:0;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="parent" @mousemove="move" @mouseup="stop" ref="parent">
+            <div class="drag" @mousedown="start" :style="transData" ref="child"></div>
+        </div>
+        
+    </div>
+    
+    <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+    <script src="../index.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            mixins: [drag],
+            mounted() {
+                
+                this.init(this.$refs.child, this.$refs.parent, this.startCallback, this.stopCallback)
+            },
+            methods: {
+                startCallback() {
+                    console.log('start drag');
+                
+                },
+                stopCallback() {
+                    console.log('stop drag');
+                    
+                }
+            }
+        })
+        
+
+    </script>
+</body>
+</html>

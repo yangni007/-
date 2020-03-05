@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .drag {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left:0;
+            top:0;
+            background-color: aqua;
+        }
+        .parent {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent" id="parent">
+        <div id="drag" class="drag"></div>
+    </div>
+    
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../index.js"></script>
+    <script>
+        function startCallback() {
+            console.log('start drag');
+        
+        }
+        function stopCallback() {
+            console.log('stop drag');
+            
+        }
+        new drag($("#drag"), $("#parent"), startCallback, stopCallback, false)
+    </script>
+</body>
+</html>
