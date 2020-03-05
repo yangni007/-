@@ -1,3 +1,11 @@
+/**
+ * el: 事件目标
+ * parent: 容器。事件目标在父元素上拖动
+ * startCallback： 开始拖拽的回调函数
+ * stopCallback： 结束拖拽的回调函数
+ * 
+ * 使用：mixin种引入 drag， 然后在生命周期init(el, parent, startCallback, stopCallback)
+ */
 var drag = {
     data() {
         return {
